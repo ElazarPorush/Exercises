@@ -17,3 +17,24 @@ const capitalizeFirstLetter = (text) => {
     const camelCaseList = textList.map(word => word[word.length - 1] !== "." ? word[0].toUpperCase() + word.slice(1, word.length) : word)
     return camelCaseList.join(" ")
 }
+
+//4
+const saveTasks = (tasks) => {
+    localStorage.setItem("Tasks", JSON.stringify(tasks))
+}
+
+const loadTasks = () => {
+    return JSON.parse(localStorage.getItem("Tasks"))
+}
+
+const addTask = (task) => {
+    const tasks = loadTasks()
+    tasks.push(task)
+    saveTasks(tasks)
+}
+
+const removeTask = (task) => {
+    const tasks = loadTasks()
+    const newTasks = tasks.filter(tsk => tsk.id !== task.id)
+    saveTasks(newTasks)
+} 
