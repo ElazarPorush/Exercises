@@ -7,7 +7,12 @@ const filterAndSortEvenNumbers = (numbers) => {
 
 //2
 const removeDuplicates = (numbers) => {
-    newNumbers = [...new Set(...numbers)]
+    newNumbers = []
+    for (const number of numbers){
+        if (!newNumbers.includes(number)){
+            newNumbers.push(number)
+        }
+    }
     return newNumbers
 }
 
